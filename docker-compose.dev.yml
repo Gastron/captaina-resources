@@ -1,0 +1,19 @@
+version: '3.2'
+services:
+  web:
+    volumes:
+      - ./debug_instance:/app/instance
+
+  asr-worker:
+    volumes:
+      - /l/rouhea1/online-models/tellme-fin/s5:/opt/s5
+      - ./docker-online-kaldi/apps/asr-worker/tellme-fin.yaml:/opt/asr-conf.yaml
+      - ./debug_instance:/opt/instance
+
+  asr-master:
+    volumes:
+      - ./debug_instance:/opt/instance
+
+  graph-creator: 
+    volumes:
+      - /l/rouhea1/online-models/tellme-fin/s5:/opt/s5
